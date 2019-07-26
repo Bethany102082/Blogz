@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method = 'POST' action="/my_post">  
+        <label>
+            New Title:<br>
+            <input type="text" name='title' />
+        </label><br><br> 
+        <label>
+            New Post:<br>
+            <textarea name='post'></textarea>
+        </label><br>
+        <input type="submit" value='Submit Post' />
+    </form>
+{% endblock %}
