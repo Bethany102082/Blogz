@@ -9,7 +9,6 @@
         {% for post in post_entries %}
         <li></li>
         <a href="/my_post?id={{post.id}}">{{post.title}}</a>
-        <span>Written by: <a href='/author?id={{post.owner.id}}'>{{post.owner.username}}</a></span>
         <p>
             {{post.post}}
         </p>

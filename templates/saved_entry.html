@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>{{saved_entry.title}}</h1>
+    <span>Written by: <a href='/author?id={{saved_entry.owner.id}}'>{{saved_entry.owner.username}}</a></span>
     <p>
         {{saved_entry.post}}
     </p>
