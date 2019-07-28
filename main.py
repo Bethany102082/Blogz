@@ -55,7 +55,7 @@ def my_post():
         title_error = ""
         post_error = ""
 
-        Valid = True
+        valid = True
         if title == "":
             title_error = "Please enter a title."
             valid = False
