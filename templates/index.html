@@ -8,11 +8,12 @@
     <ul>
         {% for post in post_entries %}
         <li></li>
-        <a href="/my_post?id={{post.id}}">{{post.title}}</a>
-        <span>Written by: <a href='/author?id={{post.owner.id}}'>{{post.owner.username}}</a></span>
+        <a href="/my_post?id={{post.id}}">{{post.title}}</a><br>
         <p>
             {{post.post}}
         </p>
+        <span>Written by: <a href='/author?id={{post.owner.id}}'>{{post.owner.username}}</a></span>
+
         {% endfor %}
     </ul>
 

@@ -4,11 +4,13 @@
     <form method = 'POST' action="/my_post">  
         <label>
             New Title:<br>
-            <input type="text" name='title' />
+            <input type="text" name='title' value="{{title}}" />
+            <span>{{title_error}}</span>
         </label><br><br> 
         <label>
             New Post:<br>
-            <textarea name='post'></textarea>
+            <textarea name='post'>{{post}}</textarea>
+            <span>{{post_error}}</span>
         </label><br>
         <input type="submit" value='Submit Post' />
     </form>

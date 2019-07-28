@@ -34,7 +34,7 @@ class Entry(db.Model):
 
 @app.before_request
 def require_login():
-    allowed_routes = ['user_signup', 'user_login']
+    allowed_routes = ['user_signup', 'user_login', 'authors', 'index', 'my_post']
     if request.endpoint not in allowed_routes and 'username' not in session:
         return redirect('/login')
 
@@ -55,11 +55,14 @@ def my_post():
         title_error = ""
         post_error = ""
 
+        Valid = True
         if title == "":
             title_error = "Please enter a title."
+            valid = False
         if post == "":
             post_error = "Please enter a post."
-        if title == "" or post == "":   
+            valid = False
+        if valid == False:   
             return render_template('post_entry_page.html', title_error=title_error, post_error=post_error, title=title, post=post)
         else:
             owner = User.query.filter_by(username=session['username']).first()
@@ -86,7 +89,7 @@ def user_login():
             return redirect('/make_post')
         else:
             flash('User password incorrect, or user does not exist', 'error')
-            return render_template('login.html')
+            return render_template('login.html', username=username)
     else:
         return render_template('login.html')
 
@@ -101,7 +104,6 @@ def user_signup():
         pw_error = ""
         pwvr_error = ""
 
-        valid = True
         if len(username) < 3 or len(username) > 20 or " " in username:
             un_error = "Must contain 3 to 20 characters"
             valid = False
@@ -145,6 +147,11 @@ def author():
     user = User.query.get(id)
     post_entries = Entry.query.filter_by(owner=user).all()
     return render_template('dynamic.html', post_entries=post_entries)
+
+@app.route('/blogs')
+def blogs():
+    blogs = Entry.query.all()
+    return render_template('index.html', my_post=mypost)    
 
 
 
