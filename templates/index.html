@@ -12,7 +12,7 @@
         <p>
             {{post.post}}
         </p>
-        <span>Written by: <a href='/author?id={{post.owner.id}}'>{{post.owner.username}}</a></span>
+        <span>Written by: <a href='/author?user={{post.owner.username}}'>{{post.owner.username}}</a></span>
 
         {% endfor %}
     </ul>

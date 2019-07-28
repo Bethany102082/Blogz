@@ -3,7 +3,7 @@
 {% block content %}
 <ul>
     {% for author in authors %}
-    <li><a href='/author?id={{author.id}}'>{{author.username}}</a></li>
+    <li><a href='/author?user={{author.username}}'>{{author.username}}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}

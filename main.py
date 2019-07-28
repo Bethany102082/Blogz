@@ -143,8 +143,8 @@ def authors():
 
 @app.route('/author')
 def author():
-    id = int(request.args.get("id"))
-    user = User.query.get(id)
+    username = request.args.get("user")
+    user = User.query.filter_by(username=username).first()
     post_entries = Entry.query.filter_by(owner=user).all()
     return render_template('dynamic.html', post_entries=post_entries)
 
